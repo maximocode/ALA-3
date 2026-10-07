@@ -9,3 +9,11 @@ function Tarea(titulo, descripcion, dificultad, estado, vencimiento) {
     this.creacion = new Date();
     this.vencimiento = vencimiento;   
 }
+
+function listaTareas() {
+    this.tareas = [];
+} 
+
+listaTareas.prototype.agregar = function(tarea) {
+    this.tareas.push(tarea);
+}
