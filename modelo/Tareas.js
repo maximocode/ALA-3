@@ -10,10 +10,20 @@ function Tarea(titulo, descripcion, dificultad, estado, vencimiento) {
     this.vencimiento = vencimiento;   
 }
 
-function listaTareas() {
+function ListaTareas() {
     this.tareas = [];
 } 
 
-listaTareas.prototype.agregar = function(tarea) {
+ListaTareas.prototype.agregar = function(tarea) {
     this.tareas.push(tarea);
 }
+
+ListaTareas.prototype.buscarPorID = function(id) {
+    for (let i = 0; i < this.tareas.length; i++) {
+        if (this.tareas[i].ID === id) {
+            return this.tareas[i];
+        }
+    }
+    return null;
+}
+
