@@ -41,6 +41,18 @@ ListaTareas.prototype.verTodas = function() {
     return this.tareas;
 }
 
+function conservarOReemplazar(nuevo, viejo) {
+    return nuevo === "" ? viejo : nuevo;
+}
+
+Tarea.prototype.editar = function(titulo, descripcion, dificultad, estado, vencimiento) {
+    this.titulo = conservarOReemplazar(titulo, this.titulo);
+    this.descripcion = conservarOReemplazar(descripcion, this.descripcion);
+    this.dificultad = conservarOReemplazar(dificultad, this.dificultad);
+    this.estado = conservarOReemplazar(estado, this.estado);
+    this.vencimiento = conservarOReemplazar(vencimiento, this.vencimiento);
+}
+
 module.exports = {
     Tarea: Tarea,
     ListaTareas: ListaTareas
