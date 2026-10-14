@@ -26,4 +26,13 @@ ListaTareas.prototype.buscarPorID = function(id) {
     }
     return null;
 }
-
+//el prototype no hace los metodos, se los hereda a otros objetos
+ListaTareas.prototype.filtrarPorEstado = function(estado) {
+    let tareasFiltradas = [];
+    for (let i = 0; i < this.tareas.length; i++) {
+        if (this.tareas[i].estado === estado) {
+            tareasFiltradas.push(this.tareas[i]);
+        }
+    }
+    return tareasFiltradas;
+}
