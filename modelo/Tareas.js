@@ -36,3 +36,12 @@ ListaTareas.prototype.filtrarPorEstado = function(estado) {
     }
     return tareasFiltradas;
 }
+
+ListaTareas.prototype.verTodas = function() {
+    return this.tareas;
+}
+
+module.exports = {
+    Tarea: Tarea,
+    ListaTareas: ListaTareas
+}
