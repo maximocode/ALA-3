@@ -93,7 +93,19 @@ function verDetalles(lista, idsmostrados) {
         let tarea = lista.buscarPorID(aux);
         detalleTarea(tarea);
     }
+    editarTarea(lista, tarea);
 }
+
+function editarTarea(lista, tarea) {
+    let aux2;
+    do{
+        console.log("Desea editar algo de la tarea?\n");
+        console.log("[1] si" + "[0] no\n");
+        aux2 = parseInt(prompt());
+    }while (aux2 !== 0 && aux2 !== 1);
+    if (aux2 === 1) {
+   }
+   }    
 
 
 module.exports = { iniciarApp }
