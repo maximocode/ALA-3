@@ -21,4 +21,20 @@ function menuVerTareas() {
         console.log("---------------------------------------- \n");
 }
 
-module.exports = { menuPrincipal, menuVerTareas }
+function preguntarDetalle() {
+    console.log("Desea ver el detalle de alguna tarea?\n");
+    console.log("Ingrese el ID de la tarea que desea ver o 0 para salir\n");
+}
+
+function detalleTarea(tarea) {
+    console.log("---------------------------------------- \n");
+    console.log("ID: " + tarea.ID);
+    console.log("Título: " + tarea.titulo);
+    console.log("Descripción: " + tarea.descripcion);
+    console.log("Dificultad: " + tarea.dificultad);
+    console.log("Estado: " + tarea.estado);
+    console.log("Vencimiento: " + tarea.vencimiento);
+    console.log("---------------------------------------- \n");
+}
+
+module.exports = { menuPrincipal, menuVerTareas, preguntarDetalle, detalleTarea }

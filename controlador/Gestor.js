@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')();
 const{Tarea} = require("../modelo/Tareas.js");
-const{menuPrincipal, menuVerTareas} = require("../vista/Vista.js");
+const{menuPrincipal, menuVerTareas, preguntarDetalle, detalleTarea} = require("../vista/Vista.js");
 
 function iniciarApp(lista) {
     let op;
@@ -55,13 +55,25 @@ function verTareas(lista) {
             lista.verTodas();
             break;
         case 2:
-            idsmostrados.push(...lista.filtrarPorEstado("P"));
+            for (let tarea of lista.filtrarPorEstado("P")) {
+                console.log("ID: " + tarea.ID + ", Título: " + tarea.titulo);
+                idsmostrados.push(tarea.ID);
+            }
+            verDetalles(lista, idsmostrados);
             break;
         case 3:
-            idsmostrados.push(...lista.filtrarPorEstado("E"));
+            for (let tarea of lista.filtrarPorEstado("E")) {
+                console.log("ID: " + tarea.ID + ", Título: " + tarea.titulo);
+                idsmostrados.push(tarea.ID);
+            }
+            verDetalles(lista, idsmostrados);
             break;
         case 4:
-            idsmostrados.push(...lista.filtrarPorEstado("C"));
+            for (let tarea of lista.filtrarPorEstado("C")) {
+                console.log("ID: " + tarea.ID + ", Título: " + tarea.titulo);
+                idsmostrados.push(tarea.ID);
+            }
+            verDetalles(lista, idsmostrados);
             break;
         case 0:
             console.log("Saliendo...");
@@ -70,5 +82,18 @@ function verTareas(lista) {
             console.log("Opción no válida");
     }
 }
+
+function verDetalles(lista, idsmostrados) {
+    let aux;
+    do{
+        preguntarDetalle();
+        aux = parseInt(prompt());
+    }while (aux !== 0 && aux > idsmostrados.length);
+    if (aux !== 0) {
+        let tarea = lista.buscarPorID(aux);
+        detalleTarea(tarea);
+    }
+}
+
 
 module.exports = { iniciarApp }
